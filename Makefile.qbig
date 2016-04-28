@@ -1,0 +1,2 @@
+rotatephi: rotatephi.cpp
+	g++ -o $@ -lm -O3 -mtune=corei7-avx -march=corei7-avx rotatephi.cpp
