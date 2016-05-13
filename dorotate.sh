@@ -2,8 +2,8 @@
 
 rotatephi=/hadron/bartek/code/rotatephi/rotatephi
 
-if [ -z ${1} -o -z ${2} ]; then
-  echo "usage: ./dorotate.sh <idir> <odir> <logdir>"
+if [ -z ${1} -o -z ${2} -o -z ${3} -o -z ${4} -o -z ${5} ]; then
+  echo "usage: ./dorotate.sh <idir> <odir> <logdir> <L> <T>"
   echo "A logfile will be written to <logdir>, with its name derived from the basename of <odir>"
   exit 1
 fi
@@ -22,7 +22,7 @@ date > ${logfile}
 for i in ${1}/*.dat; do
   # extract scalar configuration number
   cnum=$( basename $i | awk --field-separator '.' '{print $(NF-1)}' | awk --field-separator '_' '{print $NF}' )
-  ${rotatephi} -i ${i} -o ${2}/scalar.$cnum -L 24 -T 48 | tee -a ${logfile}
+  ${rotatephi} -i ${i} -o ${2}/scalar.$cnum -L ${4} -T ${5} | tee -a ${logfile}
 done
 
 date >> ${logfile}
