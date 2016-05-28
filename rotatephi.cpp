@@ -33,7 +33,7 @@ void parse_args_and_init(int argc, char** argv);
 // TODO: add verbosity argument
 int main (int argc, char** argv) {
   int verbose = 0;
-  printf("M_PI=%f",M_PI);
+
   parse_args_and_init(argc,argv); 
   // reading phi field configuration
   for (int i = 0; i < (4 * V + 1); ++i)
