@@ -33,7 +33,7 @@ void parse_args_and_init(int argc, char** argv);
 // TODO: add verbosity argument
 int main (int argc, char** argv) {
   int verbose = 0;
-  
+
   parse_args_and_init(argc,argv); 
   // reading phi field configuration
   for (int i = 0; i < (4 * V + 1); ++i)
@@ -49,8 +49,8 @@ int main (int argc, char** argv) {
   int counter = 0;
   double m = 0.0;
   for (int i = 0; i < V; ++i) {
-    m += phi_field[counter + 0] + phi_field[counter + 1] + 
-         phi_field[counter + 2] + phi_field[counter + 3];
+    m += sqrt(phi_field[counter + 0]*phi_field[counter + 0] + phi_field[counter + 1]*phi_field[counter + 1] + 
+         phi_field[counter + 2]*phi_field[counter + 2] + phi_field[counter + 3]*phi_field[counter + 3]);
     counter += 4;
   }
 
